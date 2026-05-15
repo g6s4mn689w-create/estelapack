@@ -3,236 +3,329 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EstelaPack | Tu envío, nuestra estrella</title>
+  <title>EstelaPack | Rastrea tu orden</title>
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-   <a href="https://wa.me/523329639338" target="_blank" style="
-position: fixed;
-bottom: 20px;
-right: 20px;
-background: #25D366;
-color: white;
-padding: 15px 18px;
-border-radius: 50px;
-font-weight: bold;
-text-decoration: none;
-box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-z-index: 999;
-">
-💬 WhatsApp
-</a>
       font-family: Arial, Helvetica, sans-serif;
-      background: #fff8ea;
-      color: #06264a;
-      line-height: 1.6;
+      background: #f5f7fb;
+      color: #08284d;
     }
+
     header {
-      background: linear-gradient(135deg, #06264a, #0b3a6d);
-      color: white;
-      padding: 24px 8%;
+      background: #ffffff;
+      padding: 18px 8%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
-    .logo {
-      font-size: 34px;
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 28px;
       font-weight: 900;
+    }
+
+    .brand span { color: #f6b21a; }
+
+    .star-logo {
+      width: 44px;
+      height: 44px;
+      background: #f6b21a;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      position: relative;
+    }
+
+    nav a {
+      color: #08284d;
+      text-decoration: none;
+      margin-left: 24px;
+      font-weight: 700;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #06264a 0%, #0b3a6d 55%, #f6b21a 55%);
+      min-height: 430px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 70px 8%;
+      color: white;
+      overflow: hidden;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 5vw, 64px);
+      margin-bottom: 15px;
       letter-spacing: -1px;
     }
-    .logo span { color: #f6b21a; }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 22px;
-      font-weight: bold;
-    }
-    .hero {
-      padding: 80px 8%;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 40px;
-      align-items: center;
-      background: radial-gradient(circle at top right, #ffe7a3, #fff8ea 45%);
-    }
-    .hero h1 {
-      font-size: clamp(42px, 6vw, 78px);
-      line-height: 1.05;
-      margin-bottom: 18px;
-    }
-    .hero h1 span { color: #f6b21a; }
+
     .hero p {
-      font-size: 22px;
-      max-width: 620px;
+      font-size: 20px;
+      max-width: 520px;
+      opacity: 0.95;
+    }
+
+    .mascot {
+      justify-self: center;
+      background: white;
+      color: #08284d;
+      width: 310px;
+      height: 310px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+      border: 8px solid rgba(255,255,255,0.55);
+    }
+
+    .big-star { font-size: 120px; line-height: 1; }
+
+    .package {
+      margin-top: -10px;
+      background: #c98b3d;
+      padding: 14px 26px;
+      border-radius: 8px;
+      font-weight: 900;
+      box-shadow: inset 0 -8px rgba(0,0,0,0.10);
+    }
+
+    .track-card {
+      max-width: 950px;
+      margin: -70px auto 60px;
+      background: white;
+      padding: 42px;
+      border-radius: 22px;
+      box-shadow: 0 18px 45px rgba(8,40,77,0.16);
+      position: relative;
+      z-index: 2;
+    }
+
+    .track-card h2 {
+      text-align: center;
+      font-size: 34px;
+      margin-bottom: 8px;
+      color: #08284d;
+    }
+
+    .track-card p {
+      text-align: center;
+      color: #5d6b7b;
       margin-bottom: 28px;
     }
-    .btn {
-      display: inline-block;
+
+    .tracking-box {
+      display: flex;
+      gap: 14px;
+    }
+
+    .tracking-box input {
+      flex: 1;
+      padding: 18px;
+      border: 2px solid #dce3ec;
+      border-radius: 12px;
+      font-size: 17px;
+      outline: none;
+    }
+
+    .tracking-box input:focus { border-color: #f6b21a; }
+
+    .tracking-box button {
+      border: none;
       background: #f6b21a;
-      color: #06264a;
+      color: #08284d;
+      padding: 0 34px;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .status {
+      margin-top: 30px;
+      background: #f5f7fb;
+      padding: 25px;
+      border-radius: 16px;
+      border-left: 6px solid #f6b21a;
+    }
+
+    .status h3 { margin-bottom: 8px; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      padding: 30px 8% 70px;
+    }
+
+    .step {
+      background: white;
+      padding: 25px;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(8,40,77,0.08);
+    }
+
+    .step .icon { font-size: 36px; margin-bottom: 12px; }
+
+    .contact-section {
+      background: #08284d;
+      color: white;
+      text-align: center;
+      padding: 60px 8%;
+    }
+
+    .contact-section h2 { font-size: 34px; margin-bottom: 12px; }
+
+    .contact-section a {
+      display: inline-block;
+      margin-top: 22px;
+      background: #25D366;
+      color: white;
       padding: 15px 28px;
       border-radius: 999px;
       text-decoration: none;
       font-weight: 900;
-      box-shadow: 0 10px 25px rgba(6,38,74,.18);
     }
-    .mascot {
-      background: white;
-      border-radius: 30px;
-      padding: 35px;
-      text-align: center;
-      box-shadow: 0 20px 50px rgba(6,38,74,.16);
-      border: 4px solid #06264a;
-    }
-    .star {
-      font-size: 150px;
-      line-height: 1;
-    }
-    .box {
-      margin: 10px auto 0;
-      width: 210px;
-      background: #c98b3d;
-      color: #06264a;
-      padding: 24px;
-      border-radius: 10px;
-      font-size: 26px;
-      font-weight: 900;
-      box-shadow: inset 0 -10px rgba(0,0,0,.08);
-    }
-    section { padding: 70px 8%; }
-    .title {
-      text-align: center;
-      font-size: 38px;
-      margin-bottom: 35px;
-    }
-    .title span { color: #f6b21a; }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .card {
-      background: white;
-      padding: 30px;
-      border-radius: 22px;
-      box-shadow: 0 12px 30px rgba(6,38,74,.09);
-      border-top: 6px solid #f6b21a;
-    }
-    .card h3 { font-size: 24px; margin-bottom: 10px; }
-    .about {
-      background: #06264a;
-      color: white;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 35px;
-      align-items: center;
-    }
-    .about h2 { font-size: 38px; margin-bottom: 16px; }
-    .about strong { color: #f6b21a; }
-    .contact {
-      text-align: center;
-    }
-    .contact-box {
-      max-width: 620px;
-      margin: auto;
-      background: white;
-      padding: 35px;
-      border-radius: 24px;
-      box-shadow: 0 12px 30px rgba(6,38,74,.12);
-    }
+
     footer {
       background: #041a33;
       color: white;
       text-align: center;
-      padding: 24px;
+      padding: 22px;
     }
-    @media (max-width: 850px) {
-      nav { margin-top: 12px; }
-      nav a { margin-left: 0; margin-right: 16px; }
-      .hero, .about { grid-template-columns: 1fr; }
-      .cards { grid-template-columns: 1fr; }
-      .hero { padding-top: 50px; }
+
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      padding: 15px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.22);
+      z-index: 99;
+    }
+
+    @media(max-width: 850px) {
+      header { flex-direction: column; gap: 12px; }
+      nav a { margin: 0 8px; }
+      .hero { grid-template-columns: 1fr; text-align: center; gap: 35px; }
+      .hero p { margin: auto; }
+      .tracking-box { flex-direction: column; }
+      .tracking-box button { padding: 16px; }
+      .steps { grid-template-columns: 1fr; }
+      .mascot { width: 240px; height: 240px; }
+      .big-star { font-size: 90px; }
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="logo">Estela<span>Pack</span></div>
-    <nav>
-      <a href="#servicios">Servicios</a>
-      <a href="#nosotros">Nosotros</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div>
-<h1>Envíos rápidos, seguros y con confianza</h1>
-<p style="font-size:20px; margin-top:10px;">
-En EstelaPack llevamos tus paquetes con puntualidad, cuidado y trato humano.
-</p>
-        <p>Conectamos personas, comunidades y sueños a través de entregas seguras, puntuales y con trato humano.</p>
-      <br><br>
-<p style="font-weight:bold; color:#06264a;">
-📦 Entregas locales y nacionales  
-⏱️ Puntualidad garantizada  
-🤝 Atención personalizada por WhatsApp
-</p>
-      </div>
-      <div class="mascot" aria-label="Mascota EstelaPack">
-        <div class="star">⭐</div>
-        <div class="box">Estela<span style="color:#f6b21a">Pack</span></div>
-      </div>
-    </section>
+<header>
+  <div class="brand">
+    <div class="star-logo"></div>
+    Estela<span>Pack</span>
+  </div>
+  <nav>
+    <a href="#rastreo">Rastreo</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
 
-    <section id="servicios">
-      <h2 class="title">Servicios <span>EstelaPack</span></h2>
-      <div class="cards">
-        <div class="card">
-          <h3>📦 Envíos seguros</h3>
-          <p>Cuidamos cada paquete como si fuera nuestro, desde la recolección hasta la entrega.</p>
-        </div>
-        <div class="card">
-          <h3>⏱️ Entregas puntuales</h3>
-          <p>Trabajamos con rutas eficientes para que tus paquetes lleguen a tiempo.</p>
-        </div>
-        <div class="card">
-          <h3>🤝 Trato humano</h3>
-          <p>Servicio cercano, amable y responsable para personas, negocios y comunidades.</p>
-        </div>
-      </div>
-    </section>
+<section class="hero">
+  <div>
+    <h1>Rastrea tu orden</h1>
+    <p>Consulta el estatus de tu envío de forma rápida, segura y sencilla con EstelaPack.</p>
+  </div>
 
-    <section class="about" id="nosotros">
-      <div>
-        <h2>De la comunidad, para la comunidad.</h2>
-        <p>En <strong>EstelaPack</strong> creemos que cada envío lleva más que cosas: lleva confianza, apoyo y conexión.</p>
-      </div>
-      <div>
-        <h3>Misión</h3>
-        <p>Brindar soluciones de paquetería confiables, eficientes y humanas.</p>
-        <br />
-        <h3>Valores</h3>
-        <p>Confianza · Puntualidad · Respeto · Solidaridad · Responsabilidad</p>
-      </div>
-    </section>
+  <div class="mascot">
+    <div class="big-star">⭐</div>
+    <div class="package">Estela<span style="color:#f6b21a">Pack</span></div>
+  </div>
+</section>
 
-    <section class="contact" id="contacto">
-      <h2 class="title">Contáctanos</h2>
-      <div class="contact-box">
-        <p><strong>WhatsApp:</strong> 55 1234 5678</p>
-        <p><strong>Correo:</strong> contacto@estelapack.com</p>
-        <p><strong>Cobertura:</strong> Nacional</p>
-        <br />
-        <a class="btn" href="https://wa.me/525512345678" target="_blank">Enviar WhatsApp</a>
-      </div>
-    </section>
-  </main>
+<section class="track-card" id="rastreo">
+  <h2>RASTREA TU ORDEN</h2>
+  <p>Escribe tu número de orden o guía para consultar el estado de tu paquete.</p>
 
-  <footer>
-    <p>© 2026 EstelaPack. Conectamos lo que importa.</p>
-  </footer>
+  <div class="tracking-box">
+    <input type="text" id="trackingInput" placeholder="ESCRIBE TU NÚMERO DE ORDEN" />
+    <button onclick="trackOrder()">Rastrear</button>
+  </div>
+
+  <div class="status" id="statusBox">
+    <h3>Estatus de tu orden</h3>
+    <p>Ingresa tu número de orden para iniciar el rastreo.</p>
+  </div>
+</section>
+
+<section class="steps" id="servicios">
+  <div class="step">
+    <div class="icon">📦</div>
+    <h3>Recolectado</h3>
+    <p>Recibimos tu paquete.</p>
+  </div>
+  <div class="step">
+    <div class="icon">🚚</div>
+    <h3>En camino</h3>
+    <p>Tu envío va en ruta.</p>
+  </div>
+  <div class="step">
+    <div class="icon">📍</div>
+    <h3>En reparto</h3>
+    <p>Está cerca de su destino.</p>
+  </div>
+  <div class="step">
+    <div class="icon">✅</div>
+    <h3>Entregado</h3>
+    <p>Entrega completada.</p>
+  </div>
+</section>
+
+<section class="contact-section" id="contacto">
+  <h2>¿Necesitas ayuda con tu envío?</h2>
+  <p>Escríbenos por WhatsApp y con gusto te atendemos.</p>
+  <a href="https://wa.me/523329639338" target="_blank">💬 WhatsApp 33 2963 9338</a>
+</section>
+
+<footer>
+  <p>© 2026 EstelaPack · Tu envío, nuestra estrella.</p>
+</footer>
+
+<a href="https://wa.me/523329639338" target="_blank" class="whatsapp">💬 WhatsApp</a>
+
+<script>
+  function trackOrder() {
+    const input = document.getElementById('trackingInput').value.trim();
+    const statusBox = document.getElementById('statusBox');
+
+    if (!input) {
+      statusBox.innerHTML = '<h3>Estatus de tu orden</h3><p>Por favor escribe tu número de orden.</p>';
+      return;
+    }
+
+    statusBox.innerHTML = `
+      <h3>Estatus de tu orden</h3>
+      <p><strong>Orden:</strong> ${input}</p>
+      <p>Tu paquete está siendo procesado. Para información exacta, contáctanos por WhatsApp.</p>
+    `;
+  }
+</script>
+
 </body>
 </html>
