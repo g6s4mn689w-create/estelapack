@@ -19,11 +19,11 @@
 }
 
 :root{
-    --azul:#06264a;
-    --azul2:#0b3a6d;
-    --dorado:#f7b318;
+    --azul:#061f3e;
+    --azul2:#0d3f77;
+    --dorado:#f8b400;
     --blanco:#ffffff;
-    --gris:#f5f7fb;
+    --gris:#f4f7fb;
     --verde:#25D366;
 }
 
@@ -39,13 +39,13 @@ header{
     position:fixed;
     top:0;
     width:100%;
-    background:white;
     padding:18px 8%;
+    background:white;
     display:flex;
     justify-content:space-between;
     align-items:center;
     z-index:1000;
-    box-shadow:0 2px 15px rgba(0,0,0,.08);
+    box-shadow:0 4px 20px rgba(0,0,0,.06);
 }
 
 .logo{
@@ -80,15 +80,14 @@ nav a:hover{
 
 .hero{
     min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:140px 8% 80px;
     background:
-    linear-gradient(rgba(6,38,74,.88),rgba(6,38,74,.88)),
-    url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1600&auto=format&fit=crop');
+    linear-gradient(rgba(6,31,62,.85),rgba(6,31,62,.88)),
+    url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=1600&auto=format&fit=crop');
     background-size:cover;
     background-position:center;
+    display:flex;
+    align-items:center;
+    padding:150px 8% 100px;
     color:white;
 }
 
@@ -100,19 +99,20 @@ nav a:hover{
 }
 
 .hero-text h1{
-    font-size:4rem;
+    font-size:4.3rem;
     line-height:1.1;
     margin-bottom:20px;
 }
 
-.hero-text h1 span{
+.hero-text span{
     color:var(--dorado);
 }
 
 .hero-text p{
     font-size:1.1rem;
-    line-height:1.8;
+    line-height:1.9;
     margin-bottom:35px;
+    opacity:.95;
 }
 
 .buttons{
@@ -122,7 +122,7 @@ nav a:hover{
 }
 
 .btn{
-    padding:16px 28px;
+    padding:16px 30px;
     border-radius:14px;
     text-decoration:none;
     font-weight:700;
@@ -135,7 +135,7 @@ nav a:hover{
 }
 
 .btn-primary:hover{
-    transform:translateY(-3px);
+    transform:translateY(-4px);
 }
 
 .btn-secondary{
@@ -150,10 +150,10 @@ nav a:hover{
 
 .hero-card{
     background:white;
+    color:var(--azul);
     padding:35px;
     border-radius:25px;
-    box-shadow:0 15px 40px rgba(0,0,0,.25);
-    color:var(--azul);
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
 }
 
 .hero-card h3{
@@ -161,8 +161,7 @@ nav a:hover{
     font-size:1.8rem;
 }
 
-.hero-card input,
-.hero-card select{
+.hero-card input{
     width:100%;
     padding:15px;
     margin-bottom:15px;
@@ -180,12 +179,17 @@ nav a:hover{
     color:var(--azul);
     font-weight:700;
     cursor:pointer;
+    transition:.3s;
+}
+
+.hero-card button:hover{
+    transform:translateY(-3px);
 }
 
 /* SECCIONES */
 
 .section{
-    padding:90px 8%;
+    padding:100px 8%;
 }
 
 .section-title{
@@ -194,7 +198,7 @@ nav a:hover{
 }
 
 .section-title h2{
-    font-size:2.8rem;
+    font-size:3rem;
     margin-bottom:10px;
 }
 
@@ -202,49 +206,93 @@ nav a:hover{
     color:#555;
 }
 
-.services{
+.grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
     gap:25px;
 }
 
-.service-card{
+.card{
     background:white;
     padding:35px;
-    border-radius:22px;
+    border-radius:25px;
     transition:.3s;
-    box-shadow:0 5px 15px rgba(0,0,0,.05);
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
 }
 
-.service-card:hover{
+.card:hover{
     transform:translateY(-8px);
 }
 
-.service-icon{
+.card h3{
+    margin:20px 0;
+}
+
+.icon{
     font-size:3rem;
 }
 
-.service-card h3{
-    margin:15px 0;
+/* MISION */
+
+.about{
+    background:white;
+    border-radius:30px;
+    padding:60px;
+    box-shadow:0 10px 30px rgba(0,0,0,.05);
 }
 
-/* STATS */
+.about h3{
+    margin-bottom:15px;
+    font-size:2rem;
+}
 
-.stats{
+.about p{
+    line-height:1.9;
+    color:#444;
+}
+
+/* SEGUIMIENTO */
+
+.tracking{
     background:var(--azul);
     color:white;
-}
-
-.stats-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:30px;
+    border-radius:30px;
+    padding:60px;
     text-align:center;
 }
 
-.stat h2{
+.tracking h2{
     font-size:3rem;
-    color:var(--dorado);
+    margin-bottom:15px;
+}
+
+.tracking p{
+    margin-bottom:30px;
+}
+
+.tracking-box{
+    display:flex;
+    gap:15px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.tracking-box input{
+    padding:18px;
+    width:320px;
+    border:none;
+    border-radius:12px;
+    font-size:1rem;
+}
+
+.tracking-box button{
+    padding:18px 28px;
+    border:none;
+    border-radius:12px;
+    background:var(--dorado);
+    color:var(--azul);
+    font-weight:700;
+    cursor:pointer;
 }
 
 /* CONTACTO */
@@ -252,13 +300,14 @@ nav a:hover{
 .contact{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:40px;
+    gap:30px;
 }
 
 .contact-card{
     background:white;
     padding:40px;
     border-radius:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
 }
 
 .contact-card h3{
@@ -267,8 +316,8 @@ nav a:hover{
 }
 
 .contact-card p{
+    line-height:1.8;
     margin-bottom:15px;
-    line-height:1.7;
 }
 
 /* FOOTER */
@@ -277,22 +326,23 @@ footer{
     background:var(--azul);
     color:white;
     text-align:center;
-    padding:30px;
+    padding:35px;
+    margin-top:50px;
 }
 
 /* WHATSAPP */
 
 .whatsapp{
     position:fixed;
-    right:20px;
     bottom:20px;
+    right:20px;
     background:var(--verde);
     color:white;
+    text-decoration:none;
     padding:16px 24px;
     border-radius:50px;
-    text-decoration:none;
     font-weight:700;
-    box-shadow:0 10px 25px rgba(0,0,0,.2);
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
 }
 
 /* RESPONSIVE */
@@ -304,7 +354,7 @@ footer{
 }
 
 .hero-text h1{
-    font-size:2.8rem;
+    font-size:3rem;
 }
 
 .contact{
@@ -313,6 +363,10 @@ footer{
 
 nav{
     display:none;
+}
+
+.about{
+    padding:35px;
 }
 
 }
@@ -332,8 +386,8 @@ nav{
 <nav>
 <a href="#servicios">Servicios</a>
 <a href="#empresa">Empresa</a>
+<a href="#seguimiento">Seguimiento</a>
 <a href="#contacto">Contacto</a>
-<a href="https://wa.me/523329639368">WhatsApp</a>
 </nav>
 
 </header>
@@ -352,8 +406,9 @@ Tu envío,
 </h1>
 
 <p>
-Soluciones logísticas rápidas, seguras y confiables para Morelia y todo México.
-Contamos con recolección a domicilio o recepción directa en nuestra bodega.
+En EstellaPack brindamos soluciones logísticas rápidas, seguras y confiables
+para personas, emprendedores y empresas en Morelia y toda la República Mexicana.
+Contamos con recolección a domicilio y recepción directa en bodega.
 </p>
 
 <div class="buttons">
@@ -365,16 +420,11 @@ Contamos con recolección a domicilio o recepción directa en nuestra bodega.
 
 <div class="hero-card">
 
-<h3>Cotiza tu envío</h3>
+<h3>Solicita tu envío</h3>
 
 <input type="text" placeholder="Origen">
 <input type="text" placeholder="Destino">
-
-<select>
-<option>Paquete pequeño</option>
-<option>Paquete mediano</option>
-<option>Paquete grande</option>
-</select>
+<input type="text" placeholder="Tipo de paquete">
 
 <button>Solicitar cotización</button>
 
@@ -390,33 +440,33 @@ Contamos con recolección a domicilio o recepción directa en nuestra bodega.
 
 <div class="section-title">
 <h2>Nuestros Servicios</h2>
-<p>Atención personalizada y logística eficiente.</p>
+<p>Soluciones logísticas diseñadas para ti.</p>
 </div>
 
-<div class="services">
+<div class="grid">
 
-<div class="service-card">
-<div class="service-icon">📦</div>
+<div class="card">
+<div class="icon">📦</div>
 <h3>Envíos Nacionales</h3>
-<p>Movemos paquetes a toda la República Mexicana.</p>
+<p>Movemos paquetes de forma rápida y segura a toda la República Mexicana.</p>
 </div>
 
-<div class="service-card">
-<div class="service-icon">🚚</div>
-<h3>Recolección</h3>
-<p>Recogemos tus paquetes directamente en domicilio.</p>
+<div class="card">
+<div class="icon">🚚</div>
+<h3>Recolección a Domicilio</h3>
+<p>Pasamos directamente por tus paquetes para mayor comodidad.</p>
 </div>
 
-<div class="service-card">
-<div class="service-icon">⭐</div>
-<h3>Atención Directa</h3>
-<p>Soporte rápido y atención personalizada por WhatsApp.</p>
+<div class="card">
+<div class="icon">🏢</div>
+<h3>Recepción en Bodega</h3>
+<p>Puedes llevar tus envíos directamente a nuestras instalaciones.</p>
 </div>
 
-<div class="service-card">
-<div class="service-icon">🔒</div>
-<h3>Entrega Segura</h3>
-<p>Cuidamos cada paquete durante todo el trayecto.</p>
+<div class="card">
+<div class="icon">⭐</div>
+<h3>Atención Personalizada</h3>
+<p>Atención rápida y soporte directo vía WhatsApp.</p>
 </div>
 
 </div>
@@ -428,73 +478,54 @@ Contamos con recolección a domicilio o recepción directa en nuestra bodega.
 <section class="section" id="empresa">
 
 <div class="section-title">
-<h2>Nuestra Empresa</h2>
+<h2>¿Quiénes Somos?</h2>
 <p>Comprometidos con cada envío y cada cliente.</p>
 </div>
 
-<div class="services">
+<div class="about">
 
-<div class="service-card">
-<div class="service-icon">🎯</div>
 <h3>Misión</h3>
-<p>
-Brindar soluciones logísticas rápidas, seguras y confiables,
-ofreciendo atención personalizada y facilitando el envío de paquetes
-para personas y empresas en Morelia y toda la República Mexicana.
-</p>
-</div>
 
-<div class="service-card">
-<div class="service-icon">🚀</div>
+<p>
+En EstellaPack nuestra misión es ofrecer soluciones logísticas eficientes,
+seguras y accesibles, brindando un servicio confiable de paquetería y distribución
+para personas, emprendedores y empresas, garantizando atención personalizada,
+rapidez y compromiso en cada entrega.
+</p>
+
+<br><br>
+
 <h3>Visión</h3>
-<p>
-Convertirnos en una empresa líder en logística y paquetería,
-reconocida por nuestra innovación, confianza y excelente atención al cliente,
-expandiendo nuestra cobertura a nivel nacional.
-</p>
-</div>
 
-<div class="service-card">
-<div class="service-icon">📍</div>
-<h3>Ubicación</h3>
 <p>
-Calle Revolución #381-A<br>
-Morelia, Michoacán<br><br>
-
-✅ Recolección a domicilio<br>
-✅ Recepción en bodega<br>
-✅ Atención personalizada
+Ser una empresa líder en logística y paquetería en México,
+reconocida por nuestra innovación, confianza y excelencia operativa,
+expandiendo nuestros servicios y convirtiéndonos en una referencia nacional
+en soluciones de envío y distribución.
 </p>
-</div>
 
 </div>
 
 </section>
 
-<!-- ESTADISTICAS -->
+<!-- SEGUIMIENTO -->
 
-<section class="section stats">
+<section class="section" id="seguimiento">
 
-<div class="stats-grid">
+<div class="tracking">
 
-<div class="stat">
-<h2>24/7</h2>
-<p>Atención rápida</p>
-</div>
+<h2>Seguimiento de Envíos</h2>
 
-<div class="stat">
-<h2>100%</h2>
-<p>Compromiso</p>
-</div>
+<p>
+Consulta el estado de tu paquete ingresando tu número de guía.
+</p>
 
-<div class="stat">
-<h2>2</h2>
-<p>Modalidades de envío</p>
-</div>
+<div class="tracking-box">
 
-<div class="stat">
-<h2>MX</h2>
-<p>Cobertura nacional</p>
+<input type="text" placeholder="Ingresa tu número de guía">
+
+<button>Buscar envío</button>
+
 </div>
 
 </div>
@@ -505,11 +536,16 @@ Morelia, Michoacán<br><br>
 
 <section class="section" id="contacto">
 
+<div class="section-title">
+<h2>Contáctanos</h2>
+<p>Estamos listos para ayudarte.</p>
+</div>
+
 <div class="contact">
 
 <div class="contact-card">
 
-<h3>Contáctanos</h3>
+<h3>Información</h3>
 
 <p>
 <strong>📍 Dirección:</strong><br>
@@ -523,20 +559,20 @@ Morelia, Michoacán
 </p>
 
 <p>
-<strong>✉️ Correo:</strong><br>
-contacto@estellapack.com.mx
+<strong>✉️ Correo Oficial:</strong><br>
+stellapack@gmail.com
 </p>
 
 </div>
 
 <div class="contact-card">
 
-<h3>¿Cómo funciona?</h3>
+<h3>Modalidades de Servicio</h3>
 
-<p>1️⃣ Solicita tu cotización</p>
-<p>2️⃣ Recogemos o recibimos tu paquete</p>
-<p>3️⃣ Procesamos el envío</p>
-<p>4️⃣ Entregamos de forma segura</p>
+<p>✅ Recolección a domicilio</p>
+<p>✅ Recepción en bodega</p>
+<p>✅ Atención personalizada</p>
+<p>✅ Cobertura nacional</p>
 
 </div>
 
@@ -545,7 +581,9 @@ contacto@estellapack.com.mx
 </section>
 
 <footer>
+
 © 2026 EstellaPack · Tu envío, nuestra estrella 🚚⭐
+
 </footer>
 
 <a class="whatsapp" href="https://wa.me/523329639368">
