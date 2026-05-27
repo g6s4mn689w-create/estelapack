@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>EstellaPack | Tu envío, nuestra estrella</title>
 
@@ -21,9 +21,9 @@
 :root{
     --azul:#06264a;
     --azul2:#0b3a6d;
-    --dorado:#f6b21a;
+    --dorado:#f7b318;
     --blanco:#ffffff;
-    --gris:#f4f7fb;
+    --gris:#f5f7fb;
     --verde:#25D366;
 }
 
@@ -33,16 +33,18 @@ body{
     color:var(--azul);
 }
 
+/* HEADER */
+
 header{
     position:fixed;
-    width:100%;
     top:0;
-    z-index:1000;
+    width:100%;
     background:white;
     padding:18px 8%;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    z-index:1000;
     box-shadow:0 2px 15px rgba(0,0,0,.08);
 }
 
@@ -52,7 +54,6 @@ header{
     gap:10px;
     font-size:1.5rem;
     font-weight:700;
-    color:var(--azul);
 }
 
 .logo img{
@@ -74,6 +75,8 @@ nav a{
 nav a:hover{
     color:var(--dorado);
 }
+
+/* HERO */
 
 .hero{
     min-height:100vh;
@@ -109,7 +112,6 @@ nav a:hover{
 .hero-text p{
     font-size:1.1rem;
     line-height:1.8;
-    opacity:.9;
     margin-bottom:35px;
 }
 
@@ -125,7 +127,6 @@ nav a:hover{
     text-decoration:none;
     font-weight:700;
     transition:.3s;
-    display:inline-block;
 }
 
 .btn-primary{
@@ -178,9 +179,10 @@ nav a:hover{
     background:var(--dorado);
     color:var(--azul);
     font-weight:700;
-    font-size:1rem;
     cursor:pointer;
 }
+
+/* SECCIONES */
 
 .section{
     padding:90px 8%;
@@ -193,12 +195,11 @@ nav a:hover{
 
 .section-title h2{
     font-size:2.8rem;
-    color:var(--azul);
+    margin-bottom:10px;
 }
 
 .section-title p{
     color:#555;
-    margin-top:10px;
 }
 
 .services{
@@ -219,14 +220,15 @@ nav a:hover{
     transform:translateY(-8px);
 }
 
-.service-card h3{
-    margin:15px 0;
-    color:var(--azul);
-}
-
 .service-icon{
     font-size:3rem;
 }
+
+.service-card h3{
+    margin:15px 0;
+}
+
+/* STATS */
 
 .stats{
     background:var(--azul);
@@ -244,6 +246,8 @@ nav a:hover{
     font-size:3rem;
     color:var(--dorado);
 }
+
+/* CONTACTO */
 
 .contact{
     display:grid;
@@ -267,6 +271,8 @@ nav a:hover{
     line-height:1.7;
 }
 
+/* FOOTER */
+
 footer{
     background:var(--azul);
     color:white;
@@ -274,18 +280,22 @@ footer{
     padding:30px;
 }
 
+/* WHATSAPP */
+
 .whatsapp{
     position:fixed;
-    bottom:25px;
-    right:25px;
+    right:20px;
+    bottom:20px;
     background:var(--verde);
     color:white;
-    padding:18px 24px;
+    padding:16px 24px;
     border-radius:50px;
     text-decoration:none;
     font-weight:700;
     box-shadow:0 10px 25px rgba(0,0,0,.2);
 }
+
+/* RESPONSIVE */
 
 @media(max-width:900px){
 
@@ -321,12 +331,14 @@ nav{
 
 <nav>
 <a href="#servicios">Servicios</a>
-<a href="#cobertura">Cobertura</a>
+<a href="#empresa">Empresa</a>
 <a href="#contacto">Contacto</a>
 <a href="https://wa.me/523329639368">WhatsApp</a>
 </nav>
 
 </header>
+
+<!-- HERO -->
 
 <section class="hero">
 
@@ -341,7 +353,7 @@ Tu envío,
 
 <p>
 Soluciones logísticas rápidas, seguras y confiables para Morelia y todo México.
-Recolección a domicilio o entrega directa en nuestra bodega.
+Contamos con recolección a domicilio o recepción directa en nuestra bodega.
 </p>
 
 <div class="buttons">
@@ -372,11 +384,13 @@ Recolección a domicilio o entrega directa en nuestra bodega.
 
 </section>
 
+<!-- SERVICIOS -->
+
 <section class="section" id="servicios">
 
 <div class="section-title">
 <h2>Nuestros Servicios</h2>
-<p>Logística eficiente y atención personalizada</p>
+<p>Atención personalizada y logística eficiente.</p>
 </div>
 
 <div class="services">
@@ -390,26 +404,76 @@ Recolección a domicilio o entrega directa en nuestra bodega.
 <div class="service-card">
 <div class="service-icon">🚚</div>
 <h3>Recolección</h3>
-<p>Recogemos tus paquetes en domicilio o negocio.</p>
+<p>Recogemos tus paquetes directamente en domicilio.</p>
 </div>
 
 <div class="service-card">
 <div class="service-icon">⭐</div>
 <h3>Atención Directa</h3>
-<p>Soporte rápido y personalizado por WhatsApp.</p>
+<p>Soporte rápido y atención personalizada por WhatsApp.</p>
 </div>
 
 <div class="service-card">
 <div class="service-icon">🔒</div>
 <h3>Entrega Segura</h3>
-<p>Protegemos cada envío durante todo el trayecto.</p>
+<p>Cuidamos cada paquete durante todo el trayecto.</p>
 </div>
 
 </div>
 
 </section>
 
-<section class="section stats" id="cobertura">
+<!-- EMPRESA -->
+
+<section class="section" id="empresa">
+
+<div class="section-title">
+<h2>Nuestra Empresa</h2>
+<p>Comprometidos con cada envío y cada cliente.</p>
+</div>
+
+<div class="services">
+
+<div class="service-card">
+<div class="service-icon">🎯</div>
+<h3>Misión</h3>
+<p>
+Brindar soluciones logísticas rápidas, seguras y confiables,
+ofreciendo atención personalizada y facilitando el envío de paquetes
+para personas y empresas en Morelia y toda la República Mexicana.
+</p>
+</div>
+
+<div class="service-card">
+<div class="service-icon">🚀</div>
+<h3>Visión</h3>
+<p>
+Convertirnos en una empresa líder en logística y paquetería,
+reconocida por nuestra innovación, confianza y excelente atención al cliente,
+expandiendo nuestra cobertura a nivel nacional.
+</p>
+</div>
+
+<div class="service-card">
+<div class="service-icon">📍</div>
+<h3>Ubicación</h3>
+<p>
+Calle Revolución #381-A<br>
+Morelia, Michoacán<br><br>
+
+✅ Recolección a domicilio<br>
+✅ Recepción en bodega<br>
+✅ Atención personalizada
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- ESTADISTICAS -->
+
+<section class="section stats">
 
 <div class="stats-grid">
 
@@ -436,6 +500,8 @@ Recolección a domicilio o entrega directa en nuestra bodega.
 </div>
 
 </section>
+
+<!-- CONTACTO -->
 
 <section class="section" id="contacto">
 
